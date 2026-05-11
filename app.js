@@ -13,7 +13,8 @@
 const DEFAULT_EVENTS = [
   { name: "Tap your frame 5 times when you hear the count down", duration: 10 },
   { name: "No activity - stay still and do not move", duration: 120 },
-  { name: "Blink Every 5 seconds", duration: 60 },
+  { name: "Blink Forcefully (big blinks) Every 5 seconds", duration: 60 },
+  { name: "Blink normally (small blinks) Every 5 seconds", duration: 60 },
   { name: "No activity - stay still and do not move", duration: 30 },
   { name: "Raise and lower eyebrows periodically", duration: 60 },
   { name: "No activity - stay still and do not move", duration: 30 },
@@ -33,13 +34,13 @@ const DEFAULT_EVENTS = [
   },
   { name: "No activity - stay still and do not move", duration: 30 },
   {
-    name: "Walk in place (few steps forward, few steps backward)",
-    duration: 180,
+    name: "Walk in place SLOW and FAST Don't keep it the same speed",
+    duration: 90,
   },
   { name: "No activity - stay still and do not move", duration: 30 },
   {
     name: "Walk while talking: A astronaut named Leo landed on a distant planet covered in silver forests. He walked through the trees and discovered a glowing lake at the center. A creature rose from the water and stared at him. It did not speak but handed him a small stone. Leo looked at the stone and saw his home reflected in it. He smiled and placed it in his pocket. Then he turned and walked back to his ship knowing he would return one day.",
-    duration: 180,
+    duration: 90,
   },
   { name: "No activity - stay still and do not move", duration: 30 },
   { name: "Run in place", duration: 60 },
