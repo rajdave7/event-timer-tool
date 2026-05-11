@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlassTENG Data Collection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-inner">
+        <div class="logo-mark">GT</div>
+        <div>
+          <h1 class="site-title">GlassTENG</h1>
+          <p class="site-sub">Data Collection Protocol</p>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Timer Panel -->
+      <section class="card timer-card">
+        <div class="current-label">CURRENT ACTIVITY</div>
+        <div id="currentEventName" class="current-name">—</div>
+        <div id="timer" class="timer-display">00:00:00</div>
+
+        <div class="progress-wrap">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+
+        <!-- Countdown overlay -->
+        <div id="countdownOverlay" class="countdown-overlay hidden">
+          <div id="countdownNum" class="countdown-num">5</div>
+          <div class="countdown-label">seconds remaining</div>
+        </div>
+
+        <div class="timer-controls">
+          <button id="startTimer" class="btn btn-start">▶ Start</button>
+          <button id="pauseTimer" class="btn btn-pause" disabled>
+            ⏸ Pause
+          </button>
+          <button id="resetTimer" class="btn btn-reset">↺ Reset</button>
+        </div>
+
+        <div id="nextUp" class="next-up hidden">
+          <div class="next-label">UP NEXT</div>
+          <div id="nextName" class="next-name">—</div>
+        </div>
+      </section>
+
+      <div class="two-col">
+        <!-- Activities Editor -->
+        <section class="card">
+          <h2 class="section-title">
+            Activities <span class="badge" id="eventCount">0</span>
+          </h2>
+          <p class="hint">
+            Drag rows to reorder • Click ✎ to edit • Click ✕ to delete
+          </p>
+
+          <div class="add-form">
+            <input
+              type="text"
+              id="eventName"
+              placeholder="Activity name"
+              class="inp"
+            />
+            <input
+              type="number"
+              id="eventDuration"
+              placeholder="Duration (s)"
+              class="inp inp-sm"
+            />
+            <button id="addEvent" class="btn btn-add">+ Add</button>
+          </div>
+
+          <div class="table-wrap">
+            <table class="evt-table">
+              <thead>
+                <tr>
+                  <th style="width: 28px"></th>
+                  <th>Activity</th>
+                  <th style="width: 80px">Secs</th>
+                  <th style="width: 64px"></th>
+                </tr>
+              </thead>
+              <tbody id="eventsUl">
+                <!-- rows rendered by JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="json-section">
+            <div class="json-header">
+              <span>JSON Import / Export</span>
+              <button id="copyJson" class="btn-text">Copy</button>
+            </div>
+            <textarea
+              id="importJsonText"
+              placeholder="Paste or edit JSON here…"
+              class="json-area"
+            ></textarea>
+            <button id="importJson" class="btn btn-import">
+              ↑ Import JSON
+            </button>
+          </div>
+        </section>
+
+        <!-- Log Table -->
+        <section class="card">
+          <h2 class="section-title">Session Log</h2>
+          <p class="hint">Timestamped start/end for each completed activity</p>
+          <div class="table-wrap">
+            <table class="log-table">
+              <thead>
+                <tr>
+                  <th>Activity</th>
+                  <th>Start</th>
+                  <th>End</th>
+                </tr>
+              </thead>
+              <tbody id="logBody">
+                <tr>
+                  <td colspan="3" class="empty-row">
+                    No data yet — start the timer to begin.
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <button id="exportCsv" class="btn btn-export">↓ Export CSV</button>
+        </section>
+      </div>
+    </main>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="modal-backdrop hidden">
+      <div class="modal">
+        <h3 class="modal-title">Edit Activity</h3>
+        <label class="modal-label">Name</label>
+        <input
+          type="text"
+          id="editName"
+          class="inp"
+          style="width: 100%; margin-bottom: 12px"
+        />
+        <label class="modal-label">Duration (seconds)</label>
+        <input
+          type="number"
+          id="editDuration"
+          class="inp"
+          style="width: 100%; margin-bottom: 20px"
+        />
+        <div class="modal-actions">
+          <button id="editCancel" class="btn btn-reset">Cancel</button>
+          <button id="editSave" class="btn btn-start">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
