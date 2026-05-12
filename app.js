@@ -24,9 +24,9 @@ const DEFAULT_EVENTS = [
   { name: "No activity - stay still and do not move", duration: 30 },
   { name: "Drink water", duration: 60 },
   { name: "No activity - stay still and do not move", duration: 30 },
-  { name: "Clench teeth", duration: 60 },
+  { name: "Clench teeth (Clench and Unclench Periodically)", duration: 60 },
   { name: "No activity - stay still and do not move", duration: 30 },
-  { name: "Tap teeth", duration: 60 },
+  { name: "Tap teeth periodically", duration: 60 },
   { name: "No activity - stay still and do not move", duration: 30 },
   {
     name: "Talk: Read this: A boy named Finn found a map inside an old library book. The map showed a hidden island where a dragon named Sable lived alone. Finn built a small boat and sailed for three days until he saw smoke rising from the sea. He landed on the island and found Sable sleeping near a pile of golden rocks. Finn sat down and waited. When Sable opened her eyes she did not breathe fire. Instead she spoke softly and asked why he had come. Finn said he just wanted to meet her. Sable smiled and offered him a golden rock to take home.",
